@@ -27,7 +27,8 @@ fn str_parse() {
 
     print!("Name,\tlength(cm)\n");
     for (i, record) in records.enumerate() {
-      if i == 0 || record.trim().len() == 0 {
+      //if i == 0 || record.trim().len() == 0 {
+        if record.trim().len() == 0 {
         continue;
       }
 
@@ -40,8 +41,8 @@ fn str_parse() {
         .collect();
       if cfg!(debug_assertions) {
           // 输出到标准错误输出
-        eprintln!("dbg: record: {:?} -> fields: {:?} i: {}",
-               record, fields, i);
+        eprintln!("dbg: record: {:?} -> fields: {:?}  i: {}, record.trim().len():{}",
+               record, fields, i, record.trim().len());
       }
 
       let name = fields[0];
